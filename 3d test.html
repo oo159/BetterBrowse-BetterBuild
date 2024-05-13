@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d example</title>
+</head>
+<body>
+    <h1> </h1>
+    <h1>BetterBuild~</h1>
+    <h1> </h1>
+    <canvas id="Canvas" width="820" height="820"></canvas>
+    <h1> </h1>
+    <h1>shape: </h1>
+    <input id="shape">
+    <h1>scale:</h1>
+    <input id="scale">
+    <h1>positionX:</h1>
+    <input id="posX">
+    <h1>positionY</h1>
+    <input id="posY">
+    <h1> </h1>
+    <button onclick="gen()">Generate 3d shape!</button>
+    <style>
+        button {background-color: darkgray; border-color: green;}
+        input {background-color: darkgray; border-color: green;}
+        body {background-color: black; text-align: left; color: green;}
+        canvas {background-color: darkgray; border-color: green;}
+    </style>
+    <script>
+        alert("This 3d renderer is still in development, so some stuff might be laggy!");
+        alert("The first function we have working is the cube, more 3d shapes will be added later.")
+        function gen(){
+            console.log("responding...");
+            var shapeType = document.getElementById("shape");
+            var shapeTypeV =  shapeType.value;
+            if (shapeTypeV == "cube" || shapeTypeV == "Cube"){
+                console.log("cube");
+                cube();
+            }else{
+                alert("Could not find shape you where looking for! shapes: cube")
+            }
+            function cube(){
+                var scale = document.getElementById("scale");
+                var scaleV = scale.value;
+                var x = document.getElementById("posX");
+                var xV = x.value;
+                var y = document.getElementById("posY");
+                var yV = y.value;
+                if (scaleV == null){
+                    alert("You need to set the shapes scale!");
+                    window.location.reload();
+                }
+                if (xV == null){
+                    alert("You need to set the shapes x position!");
+                    window.location.reload();
+                }
+                if (yV == null){
+                    alert("You need to set the shapes y position!");
+                    window.location.reload();
+                }
+                var aX = ((xV-scaleV)-50);
+                var aY = ((yV-scaleV)-50);
+                var oSX = ((xV-scaleV)-25);
+                var oSY = ((yV-scaleV)-25);
+                var mX = (oSX+50);
+                var mY = (oSY+50);
+                var can = document.getElementById("Canvas");
+                var con = can.getContext("2d");
+                con.beginPath();
+                con.arc(xV, yV, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(aX, yV, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(xV, aY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(aX, aY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(oSX, oSY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(mX, oSY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(oSX, mY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(mX, mY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(xV, yV, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(xV, aY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(aX, yV, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(aX, aY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(oSX, oSY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(oSX, mY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(mX, oSY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(mX, mY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(xV, yV, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(oSX, oSY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(aX, yV, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(oSX, mY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(xV, aY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(mX, oSY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+                con.beginPath();
+                con.arc(aX, aY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.arc(mX, mY, 1, 0, Math.PI * 2, false);
+                con.stroke();
+                con.closePath();
+            }
+        }
+    </script>
+</body>
+</html>
